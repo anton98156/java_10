@@ -1,18 +1,31 @@
 package fruitbox;
 
-public class Box/* TODO: Тут должен быть дженерик */ {
+import java.util.List;
+import java.util.ArrayList;
 
-    /* TODO: Тут должен быть дженерик */
-    public void add(Object fruit) {
-        // добавляем фрукт в коробку
+public class Box <T extends Fruit> {
+
+    private List<T> fruits;
+    private T t1;
+
+    public Box() {
+        fruits = new ArrayList<>();
     }
 
-    public int getWeight() {
-        // TODO: 13.03.2023 Сумма весов всех фруктов
-        throw new UnsupportedOperationException();
+    public void add(T fruit) {
+        fruits.add(fruit);
     }
 
-    public void moveTo(Box/* TODO: Тут должен быть дженерик */ target) {
+    // public int getWeight() {
+    //     int sum = 0;
+    //     for (T t : fruits) {
+    //         sum += t.intValue();
+    //     }
+    //     return sum;
+    //     throw new UnsupportedOperationException();
+    // }
+
+    public void moveTo(Box <? extends Fruit> target) {
         // пересыпаем фрукты отсюда в target
     }
 
