@@ -9,38 +9,29 @@ package fruitbox;
 // В коробку с апельсинами нельзя добавить яблоки
 // В коробку с золотыми яблоками нельзя добавить апельсины и яблоки
 // Пересыпать из коробки с золотыми яблоками в коробку с яблоками можно!
-// 3.* Реализовать итерируемость по коробке
 
 public class HomeWork {
 
     public static void main(String[] args) {
 
-        // Box<String> stringBox = new Box(); // не должно работать
-        Box<Apple> appleBox = new Box(); // работает
-        Box<Orange> orangeBox = new Box(); // работает
-        Box<GoldenApple> goldenAppleBox = new Box(); // работает
+        Box<Orange> orangeBox = new Box<>();
+        Box<Apple> appleBox = new Box<>();
+        Box<GoldenApple> goldenAppleBox = new Box<>();
+        
+        orangeBox.fruits.add(new Orange(3)); 
+        System.out.println(orangeBox.getWeight());
 
-        appleBox.add(new Apple(1)); // работает
-        // appleBox.add(new Orange(1)); // не работает
-        appleBox.add(new GoldenApple(4)); // работает
-        System.out.println(appleBox.getWeight()); // 5
+        appleBox.fruits.add(new Apple(1));
+        appleBox.fruits.add(new GoldenApple(4));
+        System.out.println(appleBox.getWeight());
 
-        // goldenAppleBox.add(new Apple(2)); // не работает
-        goldenAppleBox.add(new GoldenApple(2)); // работает
-        System.out.println(goldenAppleBox.getWeight()); // 2
+        goldenAppleBox.fruits.add(new GoldenApple(2)); 
+        System.out.println(goldenAppleBox.getWeight());
 
-        goldenAppleBox.moveTo(appleBox); // работает
+
+        goldenAppleBox.moveTo(appleBox);
         System.out.println(goldenAppleBox.getWeight()); // 0
         System.out.println(appleBox.getWeight()); // 7
-        
-        orangeBox.add(new Orange(2)); // почему не работает?
-        System.out.println(orangeBox);
-
-
-
-        // 3.*
-        // for (GoldenApple apple: goldenAppleBox) { // должно работать
-
-        // }
+       
     }
 }

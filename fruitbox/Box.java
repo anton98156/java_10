@@ -1,19 +1,12 @@
 package fruitbox;
 
-import java.util.List;
 import java.util.ArrayList;
-
 public class Box <T extends Fruit> {
 
-    private List<T> fruits;
-    // private T t1;
+    public ArrayList<T> fruits;
 
     public Box() {
         fruits = new ArrayList<>();
-    }
-
-    public void add(T fruit) {
-        fruits.add(fruit);
     }
 
     public int getWeight() {
@@ -24,7 +17,10 @@ public class Box <T extends Fruit> {
         return sum;
     }
 
-    public void moveTo(Box <? extends Fruit> target) {
-        // пересыпаем фрукты отсюда в target
+    public void moveTo(Box<? super Apple> target) {
+        for (int i = 0; i < target.fruits.size(); i++) {
+            Fruit x = target.fruits.get(i);
+            // fruits.add(x);
+        }
     }
 }
